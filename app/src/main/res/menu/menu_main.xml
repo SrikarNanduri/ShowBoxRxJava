@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_bookmark"
+        android:orderInCategory="1"
+        android:title="@string/bookmarks"
+        android:icon="@drawable/ic_action_bookmark_white"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_sort_popular"
+        android:orderInCategory="1"
+        android:title="@string/popular_movies"
+        app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/action_sort_top"
+        android:orderInCategory="1"
+        android:title="@string/top_rated"
+        app:showAsAction="collapseActionView"/>
+
+    <item
+        android:id="@+id/action_sort_upcoming"
+        android:orderInCategory="1"
+        android:title="@string/upcoming"
+        app:showAsAction="collapseActionView"/>
+
+</menu>
