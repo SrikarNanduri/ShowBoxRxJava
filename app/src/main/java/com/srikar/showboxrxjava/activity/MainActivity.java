@@ -2,24 +2,24 @@ package com.srikar.showboxrxjava.activity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import com.srikar.showboxrxjava.BuildConfig;
 import com.srikar.showboxrxjava.R;
 import com.srikar.showboxrxjava.adaptors.MovieListAdapter;
 import com.srikar.showboxrxjava.network.ConnectivityReceiver;
 import com.srikar.showboxrxjava.network.MyApplication;
 import com.srikar.showboxrxjava.viewModels.MovieResponseViewModel;
+
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     Toolbar mToolbar;
     @BindView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @BindView(R.id.progressBar)
-    ProgressBar mProgressBar;
     @BindView(R.id.API_Key)
     TextView apiTV;
     @BindView(R.id.home_imageholder_iv)
@@ -51,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
     // We use pagination
     MovieResponseViewModel viewModel;
+    private final static String API_KEY = BuildConfig.API_KEY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,17 +87,16 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     private void connection(boolean isConnected){
         if(isConnected){
             movieFeed();
-            mProgressBar.setVisibility(GONE);
             mImageView.setVisibility(GONE);
             apiTV.setVisibility(GONE);
         } else {
             mImageView.setVisibility(VISIBLE);
+            viewModel.refresh();
             mImageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_network_check));
             apiTV.setVisibility(VISIBLE);
             apiTV.setText(R.string.NetworkNotAvailable);
             apiTV.setTextColor(getResources().getColor(R.color.white));
             Toast.makeText(MainActivity.this, R.string.NetworkNotAvailable, Toast.LENGTH_LONG).show();
-            mProgressBar.setVisibility(GONE);
             swipeToRefresh();
         }
     }
@@ -111,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
     public void movieFeed(){
         swipeToRefresh();
-        mProgressBar.setVisibility(GONE);
         manager = new GridLayoutManager(this, spanCount);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setHasFixedSize(true);

@@ -22,8 +22,6 @@ import com.srikar.showboxrxjava.activity.DetailsActivity;
 import com.srikar.showboxrxjava.config.ConfigURL;
 import com.srikar.showboxrxjava.models.MovieDetails;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -71,8 +69,8 @@ public class MovieListAdapter extends PagedListAdapter<MovieDetails, MovieListAd
 
     private static DiffUtil.ItemCallback<MovieDetails> DIFF_CALLBACK = new DiffUtil.ItemCallback<MovieDetails>() {
         @Override
-        public boolean areItemsTheSame(@NonNull MovieDetails movieDetails_, @NonNull MovieDetails t1) {
-            return movieDetails_.getid() == t1.getid();
+        public boolean areItemsTheSame(@NonNull MovieDetails movieDetails, @NonNull MovieDetails t1) {
+            return movieDetails.getId() == t1.getId();
         }
 
         @Override

@@ -7,7 +7,16 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class MovieResponse implements Parcelable {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class MovieResponse implements Parcelable{
 
     @SerializedName("page")
     private int page;
@@ -37,56 +46,16 @@ public class MovieResponse implements Parcelable {
         }
     };
 
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public List<MovieDetails> getResults() {
-        return results;
-    }
-
-    public void setResults(List<MovieDetails> results) {
-        this.results = results;
-    }
-
-    public long getTotal_results() {
-        return total_results;
-    }
-
-    public void setTotal_results(long total_results) {
-        this.total_results = total_results;
-    }
-
-    public long getTotal_pages() {
-        return total_pages;
-    }
-
-    public void setTotal_pages(long total_pages) {
-        this.total_pages = total_pages;
-    }
-
-    public MovieResponse(int page, List<MovieDetails> results, long total_results, long total_pages) {
-        this.page = page;
-        this.results = results;
-        this.total_results = total_results;
-        this.total_pages = total_pages;
-    }
-
-
     @Override
     public int describeContents() {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(page);
-        dest.writeTypedList(results);
-        dest.writeLong(total_results);
-        dest.writeLong(total_pages);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(page);
+        parcel.writeTypedList(results);
+        parcel.writeLong(total_results);
+        parcel.writeLong(total_pages);
     }
 }
