@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MoreDetails {
+public class CompleteMovieDetails {
 
     @SerializedName("adult")
     @Expose
@@ -86,5 +86,8 @@ public class MoreDetails {
     @SerializedName("reviews")
     @Expose
     private Reviews reviews;
+    @SerializedName("similar")
+    @Expose
+    private MovieResponse similar;
 
 }

@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         MyApplication.getInstance().setConnectivityListener(this);
     }
 
+
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         connection(isConnected);
