@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbar">
 
-            <com.srikar.showboxrxjava.helperClasses.CustomLinearLayout
+            <com.srikar.showboxrxjava.customViews.CustomLinearLayout
                 android:id="@+id/backdrop_ll"
                 android:layout_width="match_parent"
                 android:layout_height="198dp"

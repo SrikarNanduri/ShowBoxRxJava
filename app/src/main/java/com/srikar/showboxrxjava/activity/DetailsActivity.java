@@ -27,7 +27,7 @@ import com.srikar.showboxrxjava.adaptors.ReviewListAdapter;
 import com.srikar.showboxrxjava.adaptors.SimilarMovieListAdapter;
 import com.srikar.showboxrxjava.adaptors.VideoListAdapter;
 import com.srikar.showboxrxjava.config.ConfigURL;
-import com.srikar.showboxrxjava.helperClasses.CustomLinearLayout;
+import com.srikar.showboxrxjava.customViews.CustomLinearLayout;
 import com.srikar.showboxrxjava.models.Cast;
 import com.srikar.showboxrxjava.models.CompleteMovieDetails;
 import com.srikar.showboxrxjava.models.Credits;

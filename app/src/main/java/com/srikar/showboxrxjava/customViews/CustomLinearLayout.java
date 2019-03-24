@@ -1,4 +1,4 @@
-package com.srikar.showboxrxjava.helperClasses;
+package com.srikar.showboxrxjava.customViews;
 
 import android.content.Context;
 import android.graphics.Bitmap;
