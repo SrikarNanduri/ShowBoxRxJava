@@ -13,8 +13,8 @@ import com.srikar.showboxrxjava.models.MovieDetails;
 public class MovieResponseViewModel extends ViewModel {
 
    public LiveData<PagedList<MovieDetails>> moviePagedList;
-   public LiveData<PageKeyedDataSource<Integer, MovieDetails>> liveMovieDataSource;
-   public MovieDetailsDataSourceFactory movieDetailsDataSourceFactory;
+   private LiveData<PageKeyedDataSource<Integer, MovieDetails>> liveMovieDataSource;
+   private MovieDetailsDataSourceFactory movieDetailsDataSourceFactory;
 
     public MovieResponseViewModel() {
 
