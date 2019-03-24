@@ -52,6 +52,6 @@ public class MovieDetailsDataSource extends PageKeyedDataSource<Integer, MovieDe
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movieResponse -> callback.onResult(movieResponse.getResults(), params.key + 1),
                         e -> Log.d("Top Rated Movies Error:" , e.getMessage()),
-                        () -> Log.d(TAG, "number of movies received:" + params.requestedLoadSize));
+                        () -> Log.d(TAG, "number of movies received in loadAfter:" + params.requestedLoadSize));
     }
 }

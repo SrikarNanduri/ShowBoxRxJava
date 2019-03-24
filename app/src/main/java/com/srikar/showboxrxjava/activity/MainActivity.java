@@ -65,11 +65,9 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
         Configuration newConfig = getResources().getConfiguration();
         if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
             spanCount = 5;
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
         } else {
             if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
                 spanCount = 3;
-                Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
             }
         }
     checkConnection();
@@ -86,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     // Checking the status
     private void connection(boolean isConnected){
         if(isConnected){
+            viewModel.refresh();
             movieFeed();
             mImageView.setVisibility(GONE);
             apiTV.setVisibility(GONE);
@@ -108,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
 
     public void movieFeed(){
-        swipeToRefresh();
         manager = new GridLayoutManager(this, spanCount);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setHasFixedSize(true);
@@ -119,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
             mSwipeRefreshLayout.setRefreshing(false);
         });
         mRecyclerView.setAdapter(mAdapter);
+        swipeToRefresh();
     }
 
 

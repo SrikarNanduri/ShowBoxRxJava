@@ -34,6 +34,8 @@ public class MovieResponseViewModel extends ViewModel {
     }
 
     public void refresh(){
-        movieDetailsDataSourceFactory.movieLiveDataSource.getValue().invalidate();
+        if(movieDetailsDataSourceFactory.movieLiveDataSource.getValue() != null) {
+            movieDetailsDataSourceFactory.movieLiveDataSource.getValue().invalidate();
+        }
     }
 }

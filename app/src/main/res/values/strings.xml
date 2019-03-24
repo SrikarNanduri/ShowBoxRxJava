@@ -14,4 +14,10 @@
     <string name="bookmarks">Bookmarks</string>
     <string name="upcoming">Upcoming</string>
     <string name="NetworkNotAvailable">Network Not Available</string>
+    <string name="genres">GENRES</string>
+    <string name="trailers">TRAILERS</string>
+    <string name="cast">CAST</string>
+    <string name="reviews">REVIEWS</string>
+    <string name="similar_movies">SIMILAR MOVIES</string>
+    <string name="ratingContinue">/10</string>
 </resources>

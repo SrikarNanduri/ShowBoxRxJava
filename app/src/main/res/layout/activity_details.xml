@@ -21,7 +21,7 @@
         android:paddingBottom="16dp">
 
         <FrameLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/details_frameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,8 +40,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
+                android:id="@+id/details_scrim"
                 android:layout_width="match_parent"
-                android:layout_height="198dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/gradient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -113,7 +114,7 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/gunmetal"
             app:layout_constraintBottom_toTopOf="@+id/synopsis_tv"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/imageView_star"
             app:layout_constraintTop_toBottomOf="@+id/release_tv"
             app:layout_constraintVertical_bias="0.0"
             tools:text="7.8" />
@@ -140,7 +141,6 @@
             android:layout_marginTop="124dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif"
-            android:text="@string/title"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             app:fontFamily="sans-serif"
@@ -150,16 +150,15 @@
             tools:targetApi="jelly_bean" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/ratingtv_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="/10"
             android:textColor="@color/gunmetal"
             app:layout_constraintBaseline_toBaselineOf="@+id/rating_tv"
             app:layout_constraintStart_toEndOf="@+id/rating_tv" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView_star"
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:layout_marginLeft="16dp"
@@ -167,7 +166,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/release_tv"
-            card_view:srcCompat="@drawable/ic_action_rating" />
+            />
 
 
         <ImageView
@@ -179,8 +178,8 @@
             app:layout_constraintEnd_toStartOf="@+id/poster_cv"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-            card_view:srcCompat="@drawable/ic_action_bookmark_white_border" />
+            app:layout_constraintTop_toBottomOf="@+id/details_frameLayout"
+            android:contentDescription="bookmark border" />
 
         <TextView
             android:id="@+id/tagline_tv"
@@ -206,16 +205,15 @@
             android:layout_marginTop="39dp"
             android:textColor="@color/gunmetal"
             app:layout_constraintEnd_toStartOf="@+id/poster_cv"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/ratingtv_tv"
             app:layout_constraintTop_toBottomOf="@+id/title_tv"
             tools:text="Runtime" />
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/view_synopsis"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/synopsis_tv" />
@@ -227,10 +225,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
-            android:text="GENRES"
             android:textColor="@color/gunmetal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view" />
+            app:layout_constraintTop_toBottomOf="@+id/view_synopsis" />
 
         <TextView
             android:id="@+id/genres_type_tv"
@@ -255,20 +252,20 @@
             app:layout_constraintEnd_toStartOf="@+id/poster_cv"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_star"
             tools:text="Status" />
 
 
         <View
+            android:id="@+id/view_runtime"
             android:layout_width="1dp"
             android:layout_height="28dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toStartOf="@+id/runtime_tv"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/ratingtv_tv"
             app:layout_constraintTop_toBottomOf="@+id/release_tv" />
 
         <View
@@ -276,7 +273,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/genres_type_tv" />
@@ -299,7 +295,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
-            android:text="TRAILERS"
             android:textColor="@color/gunmetal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_trailer" />
@@ -309,7 +304,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/video_rv" />
@@ -331,7 +325,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
-            android:text="CAST"
             android:textColor="@color/gunmetal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_cast" />
@@ -341,7 +334,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cast_rv" />
@@ -353,7 +345,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
-            android:text="REVIEWS"
             android:textColor="@color/gunmetal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_review" />
@@ -373,7 +364,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="@color/lineSaperator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/review_rv" />
@@ -385,7 +375,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="monospace"
-            android:text="SIMILAR MOVIES"
+            android:text="@string/similar_movies"
             android:textColor="@color/gunmetal"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
@@ -415,8 +405,23 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/trailers_tv"
             app:layout_constraintTop_toBottomOf="@+id/view_trailer"
-            app:layout_constraintVertical_bias="0.571"
-            card_view:srcCompat="@drawable/ic_action_share" />
+            app:layout_constraintVertical_bias="0.571" />
+
+        <ProgressBar
+            android:id="@+id/details_progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/tagline_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
