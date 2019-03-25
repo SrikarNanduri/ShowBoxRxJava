@@ -20,4 +20,10 @@
     <string name="reviews">REVIEWS</string>
     <string name="similar_movies">SIMILAR MOVIES</string>
     <string name="ratingContinue">/10</string>
+    <string name="share_icon">share Icon</string>
+    <string name="star_icon">star Icon</string>
+    <string name="twitter_icon">twitter icon</string>
+    <string name="facebook_icon">facebook icon</string>
+    <string name="imdb_icon">imdb icon</string>
+    <string name="instagram_icon">Instagram icon</string>
 </resources>

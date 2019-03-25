@@ -50,7 +50,7 @@ public class SimilarMovieListAdapter extends RecyclerView.Adapter<SimilarMovieLi
 
         holder.similarMovieList.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailsActivity.class);
-            intent.putExtra("movieList", mSimilarMovieList.get(position));
+            intent.putExtra("movieId", mSimilarMovieList.get(position).getId());
             context.startActivity(intent);
         });
     }

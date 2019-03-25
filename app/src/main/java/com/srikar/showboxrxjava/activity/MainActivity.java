@@ -84,10 +84,17 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
     // Checking the status
     private void connection(boolean isConnected){
         if(isConnected){
-            viewModel.refresh();
-            movieFeed();
-            mImageView.setVisibility(GONE);
-            apiTV.setVisibility(GONE);
+            if(API_KEY.equals("Enter your API key here")){
+                mImageView.setVisibility(VISIBLE);
+                mImageView.setImageDrawable(getResources().getDrawable(R.drawable.ic_action_api_key));
+                apiTV.setVisibility(VISIBLE);
+                apiTV.setText(R.string.API_key_error);
+            } else {
+                viewModel.refresh();
+                movieFeed();
+                mImageView.setVisibility(GONE);
+                apiTV.setVisibility(GONE);
+            }
         } else {
             mImageView.setVisibility(VISIBLE);
             viewModel.refresh();

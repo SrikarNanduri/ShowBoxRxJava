@@ -64,12 +64,6 @@ public class DetailsActivity extends AppCompatActivity {
     MovieDetailsViewModel detailsViewModel;
     String movieId;
 
-
-    List<VideosResults> videosList;
-    List<Cast> castList;
-    List<ReviewsResults> reviewsList;
-    List<GenreResults> genreList;
-
     //root views
     @BindView(R.id.details_frameLayout)
     FrameLayout frameLayout;
@@ -111,8 +105,6 @@ public class DetailsActivity extends AppCompatActivity {
     TextView ratingContinue;
     @BindView(R.id.imageView_star)
     ImageView starImage;
-    @BindView(R.id.bookmark_border_iv)
-    ImageView bookmark;
     @BindView(R.id.tagline_tv)
     TextView tagline;
     @BindView(R.id.runtime_tv)
@@ -159,6 +151,15 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
+
+        setSupportActionBar(mToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+
+
         detailsViewModel = ViewModelProviders.of(this).get(MovieDetailsViewModel.class);
 
 
@@ -222,7 +223,6 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-        setGenre(genre);
         rating.setText(String.valueOf(userRating));
         ratingContinue.setText(R.string.ratingContinue);
         release.setText(outputDate);
@@ -232,7 +232,6 @@ public class DetailsActivity extends AppCompatActivity {
         status.setText(movieStatus);
 
         mShare.setImageResource(R.drawable.ic_action_share);
-        bookmark.setImageResource(R.drawable.ic_action_bookmark_white_border);
         starImage.setImageResource(R.drawable.ic_action_rating);
 
         trailerHeadline.setText(R.string.trailers);
@@ -325,15 +324,6 @@ public class DetailsActivity extends AppCompatActivity {
         mVideoRecyclerView.setLayoutManager(new GridLayoutManager(this, 1,GridLayoutManager.HORIZONTAL,false));
         mVideoRecyclerView.setHasFixedSize(true);
         mVideoRecyclerView.setAdapter(mVideoAdapter);
-        setTrailers(trailers);
-    }
-
-    private void setTrailers(List<VideosResults> trailers){
-        videosList = trailers;
-
-    }
-    private List<VideosResults> getTrailers(){
-        return videosList;
     }
 
     private void castRV(List<Cast> cast){
@@ -341,17 +331,7 @@ public class DetailsActivity extends AppCompatActivity {
         mCastRecyclerView.setLayoutManager(new GridLayoutManager(this, 1,GridLayoutManager.HORIZONTAL,false));
         mCastRecyclerView.setHasFixedSize(true);
         mCastRecyclerView.setAdapter(mCastAdapter);
-        setCast(cast);
     }
-
-    private void setCast(List<Cast> cast){
-        castList = cast;
-
-    }
-    private List<Cast> getCast(){
-        return castList;
-    }
-
 
     private void reviewRV(List<ReviewsResults> reviews){
         mReviewAdapter = new ReviewListAdapter(this, reviews);
@@ -359,15 +339,6 @@ public class DetailsActivity extends AppCompatActivity {
         mReviewRecyclerView.setHasFixedSize(true);
         mReviewRecyclerView.setNestedScrollingEnabled(false);
         mReviewRecyclerView.setAdapter(mReviewAdapter);
-        setReview(reviews);
-    }
-
-    private void setReview(List<ReviewsResults> reviews){
-        reviewsList = reviews;
-
-    }
-    private List<ReviewsResults> getReview(){
-        return reviewsList;
     }
 
     private void similarRV(List<MovieDetails> similar){
@@ -377,13 +348,6 @@ public class DetailsActivity extends AppCompatActivity {
         mSimilarRecyclerView.setAdapter(mSimilarAdapter);
     }
 
-    private void setGenre(List<GenreResults> genre){
-        genreList = genre;
-
-    }
-    private List<GenreResults> getGenre(){
-        return genreList;
-    }
 
     @Override
     public boolean onSupportNavigateUp() {

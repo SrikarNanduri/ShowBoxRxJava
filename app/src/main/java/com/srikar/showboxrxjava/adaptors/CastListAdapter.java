@@ -1,6 +1,7 @@
 package com.srikar.showboxrxjava.adaptors;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.srikar.showboxrxjava.R;
+import com.srikar.showboxrxjava.activity.CastDetailsActivity;
 import com.srikar.showboxrxjava.models.Cast;
 
 import java.util.List;
@@ -57,6 +59,12 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
         holder.mCastName.setSelected(true);
         holder.mCharaterName.setText(charaterName);
         holder.mCharaterName.setSelected(true);
+
+        holder.mCastThumbnail.setOnClickListener(view -> {
+            Intent intent = new Intent(context, CastDetailsActivity.class);
+            intent.putExtra("castId", mCastList.get(position).getId().toString());
+            context.startActivity(intent);
+        });
 
     }
 

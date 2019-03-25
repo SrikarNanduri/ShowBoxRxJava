@@ -15,7 +15,9 @@ public class ConfigURL {
     public static final String REVIEWS = "reviews";
     public static final String SIMILAR = "similar";
     public static final String EXTERNALIDS = "external_ids";
-    public static final String IMBD = "https://www.imdb.com/title/";
+    public static final String IMAGES = "images";
+    public static final String IMDB = "https://www.imdb.com/title/";
+    public static final String IMDBACTOR = "https://www.imdb.com/name/";
     public static final String FACEBOOK = "https://www.facebook.com/";
     public static final String INSTAGRAM = "https://www.instagram.com/";
     public static final String TWITTER = "https://twitter.com/";

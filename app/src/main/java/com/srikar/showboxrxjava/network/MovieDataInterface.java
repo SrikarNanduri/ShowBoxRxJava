@@ -1,5 +1,6 @@
 package com.srikar.showboxrxjava.network;
 
+import com.srikar.showboxrxjava.models.CastDetails;
 import com.srikar.showboxrxjava.models.CompleteMovieDetails;
 import com.srikar.showboxrxjava.models.MovieResponse;
 
@@ -19,5 +20,7 @@ public interface MovieDataInterface {
     @GET("movie/{id}")
     Observable<CompleteMovieDetails> getMoreDetails(@Path("id") String id, @Query("api_key") String apiKey, @Query("append_to_response") String queries);
 
+    @GET("person/{id}")
+    Observable<CastDetails> getCastDetails(@Path("id") String id, @Query("api_key") String apiKey, @Query("append_to_response") String queries);
 
 }
