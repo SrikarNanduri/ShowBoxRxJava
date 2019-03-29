@@ -10,13 +10,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.widget.FrameLayout;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.srikar.showboxrxjava.R;
-import com.srikar.showboxrxjava.customViews.CustomLinearLayout;
 import com.srikar.showboxrxjava.models.CastDetails;
 import com.srikar.showboxrxjava.models.ExternalIds;
 import com.srikar.showboxrxjava.viewModels.CastDetailsViewModel;
@@ -38,15 +38,10 @@ public class CastDetailsActivity extends AppCompatActivity {
     CastDetailsViewModel castDetailsViewModel;
     String castId;
 
-    //Root views
-    @BindView(R.id.cast_details_frameLayout)
-    FrameLayout mFrameLayout;
 
-    //other views
+    //views
     @BindView(R.id.cast_title_tv)
     TextView castname;
-    @BindView(R.id.cast_backdrop_ll)
-    CustomLinearLayout backdrop;
     @BindView(R.id.cast_toolbar)
     Toolbar mToolbar;
     @BindView(R.id.cast_poster_iv)
@@ -55,6 +50,8 @@ public class CastDetailsActivity extends AppCompatActivity {
     CardView mCardView;
     @BindView(R.id.cast_synopsis_tv)
     TextView mSynopsis;
+    @BindView(R.id.cast_pb)
+    ProgressBar castPb;
 
     //images
     @BindView(R.id.cast_twitter)
@@ -83,6 +80,7 @@ public class CastDetailsActivity extends AppCompatActivity {
 
         castDetailsViewModel = ViewModelProviders.of(this).get(CastDetailsViewModel.class);
         castDetailsViewModel.getDetails(castId).observe(this, castDetails -> {
+            castPb.setVisibility(View.GONE);
             loadCastData(castDetails);
         });
 
