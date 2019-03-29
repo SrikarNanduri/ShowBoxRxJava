@@ -13,13 +13,12 @@ import com.srikar.showboxrxjava.models.MovieDetails;
 public class MovieResponseViewModel extends ViewModel {
 
    public LiveData<PagedList<MovieDetails>> moviePagedList;
-   private LiveData<PageKeyedDataSource<Integer, MovieDetails>> liveMovieDataSource;
-   private MovieDetailsDataSourceFactory movieDetailsDataSourceFactory;
+    private MovieDetailsDataSourceFactory movieDetailsDataSourceFactory;
 
     public MovieResponseViewModel() {
 
         movieDetailsDataSourceFactory = new MovieDetailsDataSourceFactory();
-        liveMovieDataSource = movieDetailsDataSourceFactory.getMovieLiveDataSource();
+        LiveData<PageKeyedDataSource<Integer, MovieDetails>> liveMovieDataSource = movieDetailsDataSourceFactory.getMovieLiveDataSource();
 
         PagedList.Config config =
                 (new PagedList.Config.Builder())
