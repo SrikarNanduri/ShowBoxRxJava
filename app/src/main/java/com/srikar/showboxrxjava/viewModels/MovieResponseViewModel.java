@@ -9,7 +9,7 @@ import android.arch.paging.PagedList;
 import com.srikar.showboxrxjava.datasource.MovieDetailsDataSourceFactory;
 import com.srikar.showboxrxjava.models.MovieDetails;
 
-
+@SuppressWarnings("unchecked")
 public class MovieResponseViewModel extends ViewModel {
 
    public LiveData<PagedList<MovieDetails>> moviePagedList;
