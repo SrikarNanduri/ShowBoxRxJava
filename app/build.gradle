@@ -62,11 +62,11 @@ dependencies {
     implementation 'android.arch.paging:runtime:1.0.1'
 
     //lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
-    annotationProcessor "org.projectlombok:lombok:1.18.6"
-
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+    annotationProcessor "org.projectlombok:lombok:1.18.8"
+/*
     //LeakCanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'*/
 }
